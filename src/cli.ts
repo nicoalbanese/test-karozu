@@ -19,4 +19,11 @@ const prompts = new Prompts(drizzle, (p) => ({
     }),
 }));
 
-export default new CLI(drizzle, templates, prompts);
+const cli = new CLI(drizzle, templates, prompts);
+
+async function main() {
+  const responses = await prompts.run();
+  console.log(cli.compile(responses));
+}
+
+main()
