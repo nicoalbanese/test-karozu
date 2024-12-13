@@ -2,7 +2,7 @@ import { CLI, Prompts } from "karozu/cli";
 import { drizzle } from "./config";
 import { templates } from "./templates";
 
-const prompts = new Prompts(drizzle, (p) => ({
+const input = new Prompts(drizzle, (p) => ({
   dbType: () =>
     p.select({
       message: "Which DB type do you want to use?",
@@ -19,4 +19,4 @@ const prompts = new Prompts(drizzle, (p) => ({
     }),
 }));
 
-export default new CLI(drizzle, templates, prompts);
+export default new CLI(drizzle, templates, input);
